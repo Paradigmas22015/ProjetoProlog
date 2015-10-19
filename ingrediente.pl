@@ -1,0 +1,1 @@
+:- dynamic ingrediente/1.
