@@ -1,4 +1,4 @@
-receita(ovocozido):-
+receita(ovoCozido):-
         emEstoque([ovo, agua]).
 receita(ovoFrito):-
         emEstoque([ovo, oleo]).
@@ -160,3 +160,22 @@ receita(pizzaDeMilho):-
 
 emEstoque([]).
 emEstoque([X|R]):-ingrediente(X),emEstoque(R).
+
+
+todasAsReceitas():-
+  write(ovo_cozido____),
+  receita(ovoCozido),
+  write(ovo_frito____),
+  receita(ovoFrito),
+  write(pao_com_ovo____),
+  receita(paoComOvo),
+  write(pao_com_geleia____),
+  receita(paoComGeleia),
+  write(pao_com_presunto_e_queijo____),
+  receita(paoComPresuntoEQueijo),
+  receita(carneFrita),
+  receita(molhoBolognesa),
+  receita(molhoBolognesaComCenoura),
+  receita(molhoBolognesaComCenouraECalabresa).
+
+
