@@ -48,7 +48,7 @@ receita(panquecaDeCarne):-
 receita(panquecaDeCarne):-
         emEstoque([carneMoida, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
 receita(panquecaDeFrango):-
-        emEstoque(frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
+        emEstoque([frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
 receita(panquecaDeFrango):-
         emEstoque([frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
 receita(frangoAMilanesa):-
@@ -74,7 +74,6 @@ receita(macarrao):-
         emEstoque([agua, macarrao, extratoDeTomate, tempero]).
 receita(macarrao):-
         emEstoque([agua, macarrao, tempero]).
-emEstoque([]).
 receita(pureDeBatata):-
         emEstoque([batata, sal, agua, leite]).
 receita(batataCozida):-
@@ -103,7 +102,6 @@ receita(vitaminaBanana):-
         emEstoque([banana, leite, acucar, aveia]).
 receita(vitaminaBanana):-
         emEstoque([banana, leite, aveia]).
-emEstoque([]).
 
 receita(sucoDeAbacaxi):-
         emEstoque([abacaxi, agua]).
@@ -160,5 +158,5 @@ receita(pizzaDeMilho):-
         emEstoque([farinhaDeTrigo, agua, extratoDeTomate, milho, queijo, presunto]).
 
 
-emstock([]).
-emstock([X|R]):-ingrediente(X),emstock(R).
+emEstoque([]).
+emEstoque([X|R]):-ingrediente(X),emEstoque(R).

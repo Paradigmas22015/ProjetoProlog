@@ -5,6 +5,7 @@ ingrediente(farinhaDeTrigo).
 ingrediente(ovo).
 ingrediente(gelatina).
 ingrediente(carne).
+ingrediente(carneMoida).
 ingrediente(pipoca).
 ingrediente(milho).
 ingrediente(ervilha).
@@ -78,3 +79,4 @@ ingrediente(brocolis).
 ingrediente(beringela).
 ingrediente(geleia).
 ingrediente(mel).
+ingrediente(leiteCondensado).
