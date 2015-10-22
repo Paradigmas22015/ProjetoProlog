@@ -1,63 +1,164 @@
-receita(ovoFrito):- ingrediente(ovo), ingrediente(oleo).
-receita(ovoFrito):- ingrediente(ovo), ingrediente(margarina).
-receita(paoComOvo):- ingrediente(pao), ingrediente(ovo).
-receita(paoComGeleia):- ingrediente(geleia), ingrediente(pao).
-receita(paoComPresuntoEQueijo):- ingrediente(pao), ingrediente(presunto), ingrediente(queijo).
-receita(paoComPastaDeAmendoin):- ingrediente(pao), ingrediente(pastaDeAmendoin).
-receita(carneFrita):- ingrediente(carne), ingrediente(oleo), ingrediente(tempero).
-receita(molhoBolognesa):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(molhoDeTomate).
-receita(molhoBolognesaComCenoura):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(molhoDeTomate), ingrediente(cenoura).
-receita(molhoBolognesaComCalabresa):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(molhoDeTomate), ingrediente(calabresa).
-receita(molhoBolognesaComCenouraECalabresa):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(molhoDeTomate), ingrediente(calabresa), ingrediente(cenoura).
-receita(carneMoida):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero).
-receita(carneMoidaComMilho):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(milho).
-receita(carneMoidaComBatata):- ingrediente(carneMoida), ingrediente(oleo), ingrediente(tempero), ingrediente(batata).
+receita(ovocozido):-
+        emEstoque([ovo, agua]).
+receita(ovoFrito):-
+        emEstoque([ovo, oleo]).
+receita(ovoFrito):-
+        emEstoque([ovo, margarina]).
+receita(ovoFrito):-
+        emEstoque([ovo, manteiga]).
+receita(paoComOvo):-
+        emEstoque([pao, ovo, oleo]).
+receita(paoComOvo):-
+        emEstoque([pao, ovo, manteiga]).
+receita(paoComOvo):-
+        emEstoque([pao, ovo, margarina]).
+receita(paoComGeleia):-
+        emEstoque([pao, geleia]).
+receita(paoComPresuntoEQueijo):-
+        emEstoque([pao, presunto, queijo]).
+receita(paoComPastaDeAmendoin):-
+        emEstoque([pao, pastaDeAmendoin]).
 
-receita(panquecaDeCarne):- ingrediente(carne), ingrediente(oleo), ingrediente(tempero), ingrediente(farinhaDeTrigo), ingrediente(sal), ingrediente(leite), ingrediente(ovo), ingrediente(fermento), ingrediente(tempero).
-receita(panquecaDeCarne):- ingrediente(carne), ingrediente(oleo), ingrediente(tempero), ingrediente(farinhaDeTrigo), ingrediente(sal), ingrediente(leite), ingrediente(ovo), ingrediente(fermento), ingrediente(tempero), ingrediente(cebola).
-receita(panquecaDeFrango):- ingrediente(frango), ingrediente(oleo), ingrediente(tempero), ingrediente(farinhaDeTrigo), ingrediente(sal), ingrediente(leite), ingrediente(ovo), ingrediente(fermento), ingrediente(tempero).
-receita(panquecaDeFrango):- ingrediente(frango), ingrediente(oleo), ingrediente(tempero), ingrediente(farinhaDeTrigo), ingrediente(sal), ingrediente(leite), ingrediente(ovo), ingrediente(fermento), ingrediente(tempero), ingrediente(cebola).
-receita(feijaoCozido):- ingrediente(oleo), ingrediente(feijao), ingrediente(agua).
-receita(peixeCozido):- ingrediente(oleo), ingrediente(peixe), ingrediente(agua).
-receita(arrozCozido):- ingrediente(oleo), ingrediente(tempero), ingrediente(arroz), ingrediente(agua).
-receita(macarrao):- ingrediente(agua), ingrediente(macarrao), ingrediente(extratoDeTomate), ingrediente(tempero).
-receita(frangoAMilanesa):- ingrediente(frango), ingrediente(ovo), ingrediente(oleo), ingrediente(agua), ingrediente(farinha), ingrediente(tempero).
-receita(carneAMilanesa):- ingrediente(carne), ingrediente(ovo), ingrediente(oleo), ingrediente(agua), ingrediente(farinha), ingrediente(tempero).
-receita(frangoCozido):- ingrediente(frango), ingrediente(agua), ingrediente(tempero).
-receita(frangoFrito):- ingrediente(frango), ingrediente(agua), ingrediente(oleo) ,ingrediente(tempero).
-receita(estrogonofeDeFrango):- ingrediente(oleo), ingrediente(cremeDeLeite), ingrediente(agua), ingrediente(frango), ingrediente(tempero).
-receita(estrogonofeDeCarne):- ingrediente(oleo), ingrediente(cremeDeLeite), ingrediente(agua), ingrediente(carne), ingrediente(tempero).
-receita(pureDeBatata):- ingrediente(batata), ingrediente(sal), ingrediente(agua), ingrediente(leite).
-receita(batataCozida):- ingrediente(batata), ingrediente(sal), ingrediente(agua).
-receita(batataFrita):- ingrediente(batata), ingrediente(sal), ingrediente(oleo).
+receita(carneFrita):-
+        emEstoque([carne, oleo, tempero]).
+receita(carneFrita):-
+        emEstoque([carne, oleo, sal]).
+receita(molhoBolognesa):-
+        emEstoque([carneMoida, oleo, sal, molhoDeTomate]).
+receita(molhoBolognesa):-
+        emEstoque([carneMoida, oleo, tempero, molhoDeTomate]).
+receita(molhoBolognesaComCenoura):-
+        emEstoque([carneMoida, oleo, sal, molhoDeTomate, cenoura]).
+receita(molhoBolognesaComCenoura):-
+        emEstoque([carneMoida, oleo, tempero, molhoDeTomate, cenoura]).
+receita(molhoBolognesaComCalabresa):-
+        emEstoque([carneMoida, oleo, sal, molhoDeTomate, calabresa]).
+receita(molhoBolognesaComCalabresa):-
+        emEstoque([carneMoida, oleo, tempero, molhoDeTomate, calabresa]).
+receita(molhoBolognesaComCenouraECalabresa):-
+        emEstoque([carneMoida, oleo, tempero, molhoDeTomate, calabresa, cenoura]).
+receita(carneMoida):-
+        emEstoque([carneMoida, oleo, tempero]).
+receita(carneMoidaComMilho):-
+        emEstoque([carneMoida, oleo, tempero, milho]).
+receita(carneMoidaComBatata):-
+        emEstoque([carneMoida, oleo, tempero, batata]).
+receita(panquecaDeCarne):-
+        emEstoque([carneMoida, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
+receita(panquecaDeCarne):-
+        emEstoque([carneMoida, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
+receita(panquecaDeFrango):-
+        emEstoque(frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
+receita(panquecaDeFrango):-
+        emEstoque([frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
+receita(frangoAMilanesa):-
+        emEstoque([frango, ovo, oleo, agua, farinhaDeTrigo, tempero]).
+receita(carneAMilanesa):-
+        emEstoque([carne, ovo, oleo, agua, farinhaDeTrigo, tempero]).
+receita(frangoCozido):-
+        emEstoque([frango, agua, tempero]).
+receita(frangoFrito):-
+        emEstoque([frango, oleo, tempero]).
+receita(estrogonofeDeFrango):-
+      emEstoque([oleo, cremeDeLeite, agua, frango, tempero]).
+receita(estrogonofeDeCarne):-
+      emEstoque([oleo, cremeDeLeite, agua, carne, tempero]).
 
-receita(salada):- ingrediente(alface), ingrediente(tomate), ingrediente(cenoura), ingrediente(beterraba).
+receita(feijaoCozido):-
+        emEstoque([oleo, feijao, agua, tempero]).
+receita(peixeCozido):-
+        emEstoque([oleo, peixe, agua, tempero]).
+receita(arrozCozido):-
+        emEstoque([oleo, arroz, agua, tempero]).
+receita(macarrao):-
+        emEstoque([agua, macarrao, extratoDeTomate, tempero]).
+receita(macarrao):-
+        emEstoque([agua, macarrao, tempero]).
+emEstoque([]).
+receita(pureDeBatata):-
+        emEstoque([batata, sal, agua, leite]).
+receita(batataCozida):-
+        emEstoque([batata, sal, agua]).
+receita(batataFrita):-
+        emEstoque([batata, sal, oleo]).
 
-receita(vitaminaBanana):- ingrediente(banana), ingrediente(leite).
-receita(sucoDeAbacaxi):- ingrediente(abacaxi), ingrediente(agua).
-receita(sucoDeMaracuja):- ingrediente(maracuja), ingrediente(agua).
-receita(sucoDeManga):- ingrediente(manga), ingrediente(agua).
-receita(leiteComAchocolatado):- ingrediente(leite), ingrediente(achocolatado).
-receita(cremeDeMorango):- ingrediente(leite), ingrediente(morango).
-receita(cafe):- ingrediente(cafeEmPo), ingrediente(agua).
-receita(chaDeCanela):- ingrediente(canela), ingrediente(agua).
-receita(chaDeHortela):- ingrediente(hortela), ingrediente(agua).
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, beterraba]).
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, beterraba, agriao]).
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, beterraba, agriao, milho]).
+receita(salada):-
+        emEstoque([alface, tomate, agriao, milho]).
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, agriao, milho]).
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, beterraba, milho]).
 
-receita(tortaDoce):- ingrediente(biscoito), ingrediente(cremeDeLeite), ingrediente(achocolatado).
-receita(sorvete):- ingrediente(sorvete).
-receita(brigadeiro):- ingrediente(leiteCondensado), ingrediente(achocolatado).
-receita(gelatina):- ingrediente(gelatina), ingrediente(agua).
-receita(boloCenoura):- ingrediente(farinhaDeTrigo), ingrediente(acucar), ingrediente(leite), ingrediente(ovo), ingrediente(cenoura), ingrediente(fermentoQuimico), ingrediente(oleo ).
-receita(bolo):- ingrediente(farinhaDeTrigo), ingrediente(acucar), ingrediente(ovo), ingrediente(margarina), ingrediente(fermento), ingrediente(leite).
-receita(mousseDeMaracuja):- ingrediente(leiteCondensado),ingrediente(cremeDeLeite),ingrediente(maracuja).
-receita(mousseDeMorango):- ingrediente(leiteCondensado),ingrediente(cremeDeLeite),ingrediente(morango).
-receita(mousseDeLimao):- ingrediente(leiteCondensado),ingrediente(cremeDeLeite),ingrediente(limao).
-receita(mousseDeGoiaba):- ingrediente(leiteCondensado),ingrediente(cremeDeLeite),ingrediente(goiaba).
-receita(mousseDeAcerola):- ingrediente(leiteCondensado),ingrediente(cremeDeLeite),ingrediente(acerola).
-receita(doceDeLeite):- ingrediente(leiteCondensado).
+receita(vitaminaBanana):-
+        emEstoque([banana, leite]).
+receita(vitaminaBanana):-
+        emEstoque([banana, leite, acucar]).
+receita(vitaminaBanana):-
+        emEstoque([banana, leite, acucar, aveia]).
+receita(vitaminaBanana):-
+        emEstoque([banana, leite, aveia]).
+emEstoque([]).
 
-receita(tortaSalgada):- ingrediente(farinhaDeTrigo), ingrediente(ovo), ingrediente(leite), ingrediente(oleo), ingrediente(queijo), ingrediente(fermentoQuimico).
-receita(hamburguer):- ingrediente(carneDeHamburguer), ingrediente(presunto), ingrediente(queijo), ingrediente(ovo), ingrediente(tomate), ingrediente(alface).
-receita(cachorroQuente):- ingrediente(salsicha), ingrediente(milho), ingrediente(presunto), ingrediente(queijo), ingrediente(estratoDeTomate).
-receita(pizzaDeCalabresa):- ingrediente(farinhaDeTrigo), ingrediente(agua), ingrediente(estratoDeTomate), ingrediente(calabresa), ingrediente(queijo), ingrediente(presunto).
-receita(pizzaDeMilho):- ingrediente(farinhaDeTrigo), ingrediente(agua), ingrediente(estratoDeTomate), ingrediente(milho), ingrediente(queijo), ingrediente(presunto).
+receita(sucoDeAbacaxi):-
+        emEstoque([abacaxi, agua]).
+receita(sucoDeMaracuja):-
+        emEstoque([maracuja, agua]).
+receita(sucoDeManga):-
+        emEstoque([manga, agua]).
+receita(leiteComAchocolatado):-
+        emEstoque([leite, achocolatado]).
+receita(cremeDeMorango):-
+        emEstoque([leite, morango]).
+receita(cafe):-
+        emEstoque([cafeEmPo, agua]).
+receita(chaDeCanela):-
+        emEstoque([canela, agua]).
+receita(chaDeHortela):-
+        emEstoque([hortela, agua]).
+
+receita(tortaDoce):-
+        emEstoque([biscoito, cremeDeLeite, achocolatado]).
+receita(sorvete):-
+        emEstoque([sorvete]).
+receita(brigadeiro):-
+        emEstoque([leiteCondensado, achocolatado]).
+receita(gelatina):-
+        emEstoque([gelatina, agua]).
+receita(boloCenoura):-
+        emEstoque([farinhaDeTrigo, acucar, leite, ovo, cenoura, fermentoQuimico, oleo]).
+receita(bolo):-
+        emEstoque([farinhaDeTrigo, acucar, ovo, margarina, fermento, leite]).
+receita(mousseDeMaracuja):-
+        emEstoque([leiteCondensado, cremeDeLeite, maracuja]).
+receita(mousseDeMorango):-
+        emEstoque([leiteCondensado, cremeDeLeite, morango]).
+receita(mousseDeLimao):-
+        emEstoque([leiteCondensado, cremeDeLeite, limao]).
+receita(mousseDeGoiaba):-
+        emEstoque([leiteCondensado, cremeDeLeite, goiaba]).
+receita(mousseDeAcerola):-
+        emEstoque([leiteCondensado, cremeDeLeite, acerola]).
+
+receita(doceDeLeite):-
+        emEstoque([leiteCondensado]).
+
+receita(tortaSalgada):-
+        emEstoque([farinhaDeTrigo, ovo, leite, oleo, queijo, fermentoQuimico]).
+receita(hamburguer):-
+        emEstoque([carneDeHamburguer, presunto, queijo, ovo, tomate, alface]).
+receita(cachorroQuente):-
+        emEstoque([salsicha, milho, presunto, queijo, extratoDeTomate]).
+receita(pizzaDeCalabresa):-
+        emEstoque([farinhaDeTrigo, agua, extratoDeTomate, calabresa, queijo, presunto]).
+receita(pizzaDeMilho):-
+        emEstoque([farinhaDeTrigo, agua, extratoDeTomate, milho, queijo, presunto]).
+
+
+emstock([]).
+emstock([X|R]):-ingrediente(X),emstock(R).
