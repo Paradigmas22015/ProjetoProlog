@@ -1,16 +1,16 @@
 receita(ovoCozido):-
         emEstoque([ovo, agua]).
-receita(ovoFrito):-
+receita(ovoFritoComOleo):-
         emEstoque([ovo, oleo]).
-receita(ovoFrito):-
+receita(ovoFritoComOleo):-
         emEstoque([ovo, margarina]).
-receita(ovoFrito):-
+receita(ovoFritoComOleo):-
         emEstoque([ovo, manteiga]).
-receita(paoComOvo):-
+receita(paoComOvoComOleo):-
         emEstoque([pao, ovo, oleo]).
-receita(paoComOvo):-
+receita(paoComOvoComManteiga):-
         emEstoque([pao, ovo, manteiga]).
-receita(paoComOvo):-
+receita(paoComOvoComMargarina):-
         emEstoque([pao, ovo, margarina]).
 receita(paoComGeleia):-
         emEstoque([pao, geleia]).
@@ -20,19 +20,13 @@ receita(paoComPastaDeAmendoin):-
         emEstoque([pao, pastaDeAmendoin]).
 
 receita(carneFrita):-
-        emEstoque([carne, oleo, tempero]).
-receita(carneFrita):-
-        emEstoque([carne, oleo, sal]).
+        emEstoque([carne, oleo, tempero]),!;emEstoque([carne, oleo, sal]).
 receita(molhoBolognesa):-
         emEstoque([carneMoida, oleo, sal, molhoDeTomate]).
 receita(molhoBolognesa):-
         emEstoque([carneMoida, oleo, tempero, molhoDeTomate]).
 receita(molhoBolognesaComCenoura):-
-        emEstoque([carneMoida, oleo, sal, molhoDeTomate, cenoura]).
-receita(molhoBolognesaComCenoura):-
         emEstoque([carneMoida, oleo, tempero, molhoDeTomate, cenoura]).
-receita(molhoBolognesaComCalabresa):-
-        emEstoque([carneMoida, oleo, sal, molhoDeTomate, calabresa]).
 receita(molhoBolognesaComCalabresa):-
         emEstoque([carneMoida, oleo, tempero, molhoDeTomate, calabresa]).
 receita(molhoBolognesaComCenouraECalabresa):-
@@ -45,11 +39,11 @@ receita(carneMoidaComBatata):-
         emEstoque([carneMoida, oleo, tempero, batata]).
 receita(panquecaDeCarne):-
         emEstoque([carneMoida, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
-receita(panquecaDeCarne):-
+receita(panquecaDeCarneComCebola):-
         emEstoque([carneMoida, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
 receita(panquecaDeFrango):-
         emEstoque([frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento]).
-receita(panquecaDeFrango):-
+receita(panquecaDeFrangoComCebola):-
         emEstoque([frango, oleo, tempero, farinhaDeTrigo, leite, ovo, fermento, cebola]).
 receita(frangoAMilanesa):-
         emEstoque([frango, ovo, oleo, agua, farinhaDeTrigo, tempero]).
@@ -70,10 +64,10 @@ receita(peixeCozido):-
         emEstoque([oleo, peixe, agua, tempero]).
 receita(arrozCozido):-
         emEstoque([oleo, arroz, agua, tempero]).
-receita(macarrao):-
+receita(macarraoComExtratoDeTomate):-
         emEstoque([agua, macarrao, extratoDeTomate, tempero]).
-receita(macarrao):-
-        emEstoque([agua, macarrao, tempero]).
+receita(macarraoSimples):-
+        emEstoque([agua, macarrao, oleo, tempero]).
 receita(pureDeBatata):-
         emEstoque([batata, sal, agua, leite]).
 receita(batataCozida):-
@@ -81,26 +75,13 @@ receita(batataCozida):-
 receita(batataFrita):-
         emEstoque([batata, sal, oleo]).
 
-receita(salada):-
-        emEstoque([alface, tomate, cenoura, beterraba]).
-receita(salada):-
-        emEstoque([alface, tomate, cenoura, beterraba, agriao]).
-receita(salada):-
-        emEstoque([alface, tomate, cenoura, beterraba, agriao, milho]).
-receita(salada):-
-        emEstoque([alface, tomate, agriao, milho]).
-receita(salada):-
-        emEstoque([alface, tomate, cenoura, agriao, milho]).
-receita(salada):-
-        emEstoque([alface, tomate, cenoura, beterraba, milho]).
-
 receita(vitaminaBanana):-
         emEstoque([banana, leite]).
-receita(vitaminaBanana):-
+receita(vitaminaBananaComAcucar):-
         emEstoque([banana, leite, acucar]).
-receita(vitaminaBanana):-
+receita(vitaminaBananaAveiaEAcucar):-
         emEstoque([banana, leite, acucar, aveia]).
-receita(vitaminaBanana):-
+receita(vitaminaBananaLeiteAveia):-
         emEstoque([banana, leite, aveia]).
 
 receita(sucoDeAbacaxi):-
@@ -157,25 +138,28 @@ receita(pizzaDeCalabresa):-
 receita(pizzaDeMilho):-
         emEstoque([farinhaDeTrigo, agua, extratoDeTomate, milho, queijo, presunto]).
 
+receita(salada):-
+        emEstoque([alface, tomate, cenoura, beterraba]), !;
+        emEstoque([alface, tomate, cenoura, beterraba, agriao]), !;
+        emEstoque([alface, tomate, cenoura, beterraba, agriao, milho]), !;
+        emEstoque([alface, tomate, agriao, milho]), !;
+        emEstoque([alface, tomate, cenoura, agriao, milho]), !;
+        emEstoque([alface, tomate, cenoura, beterraba, milho]).
 
 emEstoque([]).
 emEstoque([X|R]):-ingrediente(X),emEstoque(R).
 
+:- dynamic ingrediente/1.
 
-todasAsReceitas():-
-  write(ovo_cozido____),
-  receita(ovoCozido),
-  write(ovo_frito____),
-  receita(ovoFrito),
-  write(pao_com_ovo____),
-  receita(paoComOvo),
-  write(pao_com_geleia____),
-  receita(paoComGeleia),
-  write(pao_com_presunto_e_queijo____),
-  receita(paoComPresuntoEQueijo),
-  receita(carneFrita),
-  receita(molhoBolognesa),
-  receita(molhoBolognesaComCenoura),
-  receita(molhoBolognesaComCenouraECalabresa).
+tenho([]).
+tenho([X|R]):-
+     assert(ingrediente(X)), tenho(R).
 
+possoCozinhar(X):-receita(X).
+
+queroComer:- write('Escreva os ingredientes que vc tem em sua geladeira.'), nl,
+             write('Nao esqueca de coloca-los entre [], separa-los por virgula e colocar o ponto (.) ao final'), nl,
+             write('Exemplo: [ovo, oleo, leite, sorvete].'), nl,
+             read(X), tenho(X),
+             write('Para saber quais receitas voce pode preparar, digite possoCozinhar(X).').
 
